@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 
-@RestController("/api/v1")
+@RestController("/api/v1/order")
 public class OrderController {
 
     private final OrderService orderService;
