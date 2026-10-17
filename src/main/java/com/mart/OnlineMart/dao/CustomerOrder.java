@@ -1,6 +1,6 @@
 package com.mart.OnlineMart.dao;
 
-import enums.OrderStatus;
+import com.mart.OnlineMart.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
