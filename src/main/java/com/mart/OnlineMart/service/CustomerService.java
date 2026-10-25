@@ -17,15 +17,12 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    private final AddressRepository addressRepository;
-
     @Autowired
     public CustomerService(CustomerRepository customerRepository, AddressRepository addressRepository) {
         this.customerRepository = customerRepository;
-        this.addressRepository = addressRepository;
     }
 
-    public String createCustomer(@Valid CreateCustomerRequest createCustomerRequest) {
+    public String createCustomer(CreateCustomerRequest createCustomerRequest) {
         Customer customer = new Customer();
         customer.setFirstName(createCustomerRequest.getFirstName());
         customer.setLastName(createCustomerRequest.getLastName());
@@ -33,5 +30,6 @@ public class CustomerService {
         customer.setPasswordHash(createCustomerRequest.getPassword());
         customer.setEmail(createCustomerRequest.getEmail());
         customerRepository.save(customer);
+        return "Customer Created Successfully";
     }
 }

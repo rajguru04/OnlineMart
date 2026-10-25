@@ -22,8 +22,11 @@ public class CustomerOrder {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @OneToMany(mappedBy = "customerOrder", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "product_id", nullable = false)
+    @OneToMany(
+            mappedBy = "customerOrder",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
