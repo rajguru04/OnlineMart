@@ -3,6 +3,7 @@ package com.mart.OnlineMart.controller;
 import com.mart.OnlineMart.dao.Customer;
 import com.mart.OnlineMart.dto.request.CreateCustomerRequest;
 import com.mart.OnlineMart.service.CustomerService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,9 +18,9 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @Operation(summary="create new customer", description = "this API is creating new customer")
     @PostMapping("/newCustomer")
     public String createCustomer(@Valid @RequestBody CreateCustomerRequest createCustomerRequest){
-        customerService.createCustomer(createCustomerRequest);
-        return "Customer created successfully";
+        return customerService.createCustomer(createCustomerRequest);
     }
 }

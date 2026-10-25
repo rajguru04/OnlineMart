@@ -29,7 +29,6 @@ public class OrderController {
         if(orderRequest==null){
             return new OrderResponse("Order is invalid");
         }
-        orderService.createOrder(orderRequest);
-        return new OrderResponse(101L, "CREATED", new BigDecimal("50"),"Order Created Successfully");
+        return orderService.createOrder(orderRequest);
     }
 }

@@ -3,6 +3,7 @@ package com.mart.OnlineMart.controller;
 import com.mart.OnlineMart.dao.Customer;
 import com.mart.OnlineMart.dto.request.AddAddressRequest;
 import com.mart.OnlineMart.service.AddressService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -22,6 +23,8 @@ public class AddressController {
         this.addressService = addressService;
     }
 
+    @Operation(summary = "Create address",
+            description = "Create address for customer")
     @PostMapping("/addAddress")
     public String addAddress(@Valid @RequestBody AddAddressRequest addAddressRequest){
         return addressService.addAddress(addAddressRequest);

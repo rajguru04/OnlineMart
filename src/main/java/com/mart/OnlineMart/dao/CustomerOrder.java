@@ -20,6 +20,10 @@ public class CustomerOrder {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal totalAmount;
 
